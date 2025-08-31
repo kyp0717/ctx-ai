@@ -4,14 +4,13 @@ This file provides guidance for working with code in this repository.
 It contains rules for python development and deployment 
 
 ## Project Awareness & Context
-- Project contexts are located in `prps/` .
-- At the start of a new conversation, read `/prps/project_plan.md`to review project's architecture, style, and constraints.
-- At the start of a new conversation, read `/prps/task.md`to review project's architecture, style, and constraints.
-- At the start of a new conversation, read `/prps/requirements.md`to review project's architecture, style, and constraints.
+- At the start of a new conversation, read project_plan.md to review project's architecture, style, and constraints.
+- At the start of a new conversation, read task.md to review project's architecture, style, and constraints.
+- At the start of a new conversation, read `requirements.md`to review project's architecture, style, and constraints.
 - At the start of a new conversation, review sessions log files in folder `logs` to understand project status and issues.
 
 ## Logs
-- Create a folder call `/logs` if it does not exist.
+- Create a folder call `/logs` in the ctx-ai/ibxpy-ai folder .
 - When each phase is completed successfully, create a high level of the summary and save the summary file in this folder.
 - A log summary should be created for each phase.
 - The format of the log file should look like this phase_xx.md.
@@ -19,7 +18,7 @@ It contains rules for python development and deployment
 - If a phase has been reimplemented or updated, summarized the changes and append the summary to the existing log file with datestamp. 
 
 ## Tasks 
-- Use the `tasks.md` file in the `prps/` to track the status of all the tasks that need to be done
+- Use the `tasks.md` file in the to track the status of all the tasks that need to be done
 - Add new tasks to the tasks.md file 
 - Do not work on tasks in the tasks.md that have already been completed.  Do not repeat these tasks.
 - **Mark completed tasks in `tasks.md`** immediately after finishing them.
