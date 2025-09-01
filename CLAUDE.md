@@ -1,25 +1,36 @@
-# Foreclosure Scaper Context Engineering 
-
+# TWS Trading App Context Engineering 
 This file provides guidance for working with code in this repository.  
 It contains rules for python development and deployment 
 
 ## Project Awareness & Context
-- Project contexts are located in `prps/` .
-- At the start of a new conversation, read `/prps/project_plan.md`to review project's architecture, style, and constraints.
-- At the start of a new conversation, read `/prps/task.md`to review project's architecture, style, and constraints.
-- At the start of a new conversation, read `/prps/requirements.md`to review project's architecture, style, and constraints.
+- At the start of a new conversation, read project_plan.md to review project's architecture, style, and constraints.
+- At the start of a new conversation, read task.md to review project's architecture, style, and constraints.
+- At the start of a new conversation, read `requirements.md`to review project's architecture, style, and constraints.
 - At the start of a new conversation, review sessions log files in folder `logs` to understand project status and issues.
 
+## Testing 
+- Create a python virtual environment for testing using uv.
+- Please perform all tests within this virtural environment.
+- Create a folder call `/tests` at the project root (not submodule).
+- All test codes should reside in the test folder.
+- Do not write test results or update README.md after testing.
+- **After updating any logic**, check whether existing unit tests need to be updated. If so, do it.
+
 ## Logs
-- Create a folder call `/logs` if it does not exist.
-- When each phase is completed successfully, create a high level of the summary and save the summary file in this folder.
+- Create a folder call `/logs` in the ctx-ai/ibxpy folder .
+- When each phase is completed successfully, create a high level of the summary. 
+- Log summary should be no more than 16 lines. Summary should be concise and hight level overview.
+- Each summary should have 1 heading only and several bullet points.
+- Do not use icons in the log files.
+- Do not mention next phase or previous phase in the summary.
+- Save the summary file in this folder.
 - A log summary should be created for each phase.
-- The format of the log file should look like this phase_xx.md.
+- The format of the log file should look like this phase_xx_yyyymmdd.md.
 - The summary should also be date stamped.
 - If a phase has been reimplemented or updated, summarized the changes and append the summary to the existing log file with datestamp. 
 
 ## Tasks 
-- Use the `tasks.md` file in the `prps/` to track the status of all the tasks that need to be done
+- Use the `tasks.md` file in the to track the status of all the tasks that need to be done
 - Add new tasks to the tasks.md file 
 - Do not work on tasks in the tasks.md that have already been completed.  Do not repeat these tasks.
 - **Mark completed tasks in `tasks.md`** immediately after finishing them.
@@ -42,17 +53,7 @@ It contains rules for python development and deployment
 - When you are adding a new feature such as a new method or function, stop to ask whether me permission to build feature.
 - Please fully explain reason for the function as a comment
 
-## Testing & Reliability
-- **After updating any logic**, check whether existing unit tests need to be updated. If so, do it.
-- Do not write test results or update README.md after testing.
-- **Tests should live in a `/tests` folder** mirroring the main app structure.
-  - Include 
-    - 1 test for expected use
-    - 1 edge case
-    - 1 failure case
-
 ## 📦 Adding New Features - Standard Procedure
-
 ### Feature Development Pattern
 * When adding any new feature to this project, follow this established pattern:
 
