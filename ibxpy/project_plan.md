@@ -11,15 +11,17 @@
     - Display test input and test output 
     - If test fail, display failure in red in the console.
     - If test is successful, display success in green in the console.
+8. Do not build project structure unless it is explicitly directed in this project plan.
 
 ## Goal
 - Build a python app to trade stock using interactive broker trader workstation
 - Use the python package ibapi which is published interactive broker. 
-- Do not use third party package such as ib_async or ibridepy.
+- Do not use third party package such as ib_async, ib_insync or ibridepy.
 
 
 ## Phase 1  
-- Create a file call requirements.md in the ctx-ai git submodule within the folder ibxpy-ai.
+- Create a file call requirements.md.
+- Store the requirement.md file in the folder `ctx-ai/ibxpy`.
 - In the requirements, explain what are the technical requirements that are needed for development of trading app.
 - In another section, list the python packages that are needed and why this is required.
 - Please feel free to add additional sections to explain anything else.
