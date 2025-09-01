@@ -2,6 +2,15 @@
 This file provides guidance for working with code in this repository.  
 It contains rules for python development and deployment 
 
+## Context File Structure
+- All context files are located directly in the `ctx-ai` folder at the project root
+- Key context files include:
+  - `CLAUDE.md` - This file with project guidelines
+  - `project_plan.md` - Project architecture and constraints
+  - `tasks.md` - Task tracking and status
+  - `requirements.md` - Project requirements
+  - `logs/` - Phase completion summaries
+
 ## Project Awareness & Context
 - At the start of a new conversation, read project_plan.md to review project's architecture, style, and constraints.
 - At the start of a new conversation, read task.md to review project's architecture, style, and constraints.
@@ -17,7 +26,7 @@ It contains rules for python development and deployment
 - **After updating any logic**, check whether existing unit tests need to be updated. If so, do it.
 
 ## Logs
-- Create a folder call `/logs` in the ctx-ai/ibxpy folder .
+- Create a folder called `/logs` in the ctx-ai folder.
 - When each phase is completed successfully, create a high level of the summary. 
 - Log summary should be no more than 16 lines. Summary should be concise and hight level overview.
 - Each summary should have 1 heading only and several bullet points.
@@ -30,7 +39,7 @@ It contains rules for python development and deployment
 - If a phase has been reimplemented or updated, summarized the changes and append the summary to the existing log file with datestamp. 
 
 ## Tasks 
-- Use the `tasks.md` file in the to track the status of all the tasks that need to be done
+- Use the `tasks.md` file in the ctx-ai folder to track the status of all the tasks that need to be done
 - Add new tasks to the tasks.md file 
 - Do not work on tasks in the tasks.md that have already been completed.  Do not repeat these tasks.
 - **Mark completed tasks in `tasks.md`** immediately after finishing them.
