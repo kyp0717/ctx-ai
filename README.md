@@ -1,2 +1,0 @@
-# ctx-ai
-context management
