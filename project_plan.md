@@ -42,13 +42,17 @@ save with format phase_log_yyyymmdd.md
 - If there are changes to the pyproject.toml file, review and install or remove
   unnecessary packages.
 
-## Phase 3 - Setup Folder Structure
+## Phase 3 - IBKR native python package ibapi
+- The Interactive Broker native python package ibapi need to be installed
+manually.  This package is not part of the pypy library.
+
+## Phase 5 - Setup Folder Structure
 - This is a **standalone application**, NOT a distributable library
 - Use a flat module structure directly in src/ folder
 - Do NOT create nested package folders (no src/ibxpy_ai/)
 - Main entry point should be src/main.py
 
-## Phase 4 - Established connection to TWS (Trader Workstation)
+## Phase 6 - Established connection to TWS (Trader Workstation)
 ### Feature
 - Do not implement testing. Only write or modify code in this phase.
 - Implement the connection to TWS on port 7500 on localhost.
