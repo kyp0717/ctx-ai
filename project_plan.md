@@ -13,21 +13,42 @@
     - If test is successful, display success in green in the console.
 8. Do not build project structure unless it is explicitly directed in this project plan.
 
+## Project Type and Structure
+- This is a **standalone application**, NOT a distributable library
+- Use a flat module structure directly in src/ folder
+- Do NOT create nested package folders (no src/ibxpy_ai/)
+- Main entry point should be src/main.py
+- Import pattern: modules are imported directly from src/
+
 ## Goal
 - Build a python app to trade stock using interactive broker trader workstation
 - Use the python package ibapi which is published interactive broker. 
 - Do not use third party package such as ib_async, ib_insync or ibridepy.
 
-
-## Phase 1  
+## Phase 1 - Requirements  
 - Create a file call requirements.md.
 - Store the requirement.md file in the folder `ctx-ai/ibxpy`.
-- In the requirements, explain what are the technical requirements that are needed for development of trading app.
-- In another section, list the python packages that are needed and why this is required.
+- In the requirements, explain what are the technical requirements that are
+needed for development of trading app.
+- In another section, list the python packages that are needed and why this is
+required.
 - Please feel free to add additional sections to explain anything else.
-- When this phase is completed, log a summary of what has been done in phase and save with format phase_log_yyyymmdd.md
+- When this phase is completed, log a summary of what has been done in phase and
+save with format phase_log_yyyymmdd.md
 
-## Phase 2 - Established connection to TWS (Trader Workstation)
+## Phase 2 - Setup Virtual Environment
+- Build python virtual environment using uv.
+- Install required packages in virtual environments
+- If there are changes to the pyproject.toml file, review and install or remove
+  unnecessary packages.
+
+## Phase 3 - Setup Folder Structure
+- This is a **standalone application**, NOT a distributable library
+- Use a flat module structure directly in src/ folder
+- Do NOT create nested package folders (no src/ibxpy_ai/)
+- Main entry point should be src/main.py
+
+## Phase 4 - Established connection to TWS (Trader Workstation)
 ### Feature
 - Do not implement testing. Only write or modify code in this phase.
 - Implement the connection to TWS on port 7500 on localhost.
