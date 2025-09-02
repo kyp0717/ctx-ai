@@ -42,9 +42,13 @@ save with format phase_log_yyyymmdd.md
 - If there are changes to the pyproject.toml file, review and install or remove
   unnecessary packages.
 
-## Phase 3 - IBKR native python package ibapi
-- The Interactive Broker native python package ibapi need to be installed
-manually.  This package is not part of the pypy library.
+## Phase 3 - IBKR native python package ibapi installation
+- The ibapi python package is not part of the pypi library.
+- This package can be found in `~/Downloads/twsapi/`.
+- Install ibapi in the virtual environment
+- Follow the instruction provided in the file ibapi_install_guide.md.  Update
+this file as needed.
+- Create a script for manual installation.
 
 ## Phase 5 - Setup Folder Structure
 - This is a **standalone application**, NOT a distributable library
