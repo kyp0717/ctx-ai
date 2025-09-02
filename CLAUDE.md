@@ -20,7 +20,7 @@ It contains rules for python development and deployment
 ## Testing 
 - Create a python virtual environment for testing using uv.
 - Please perform all tests within this virtural environment.
-- Create a folder call `/tests` at the project root (not submodule).
+- Create a folder call `tests` in submodule ctx-ai.
 - All test codes should reside in the test folder.
 - Do not write test results or update README.md after testing.
 - **After updating any logic**, check whether existing unit tests need to be updated. If so, do it.
