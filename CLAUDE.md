@@ -28,22 +28,27 @@ It contains rules for python development and deployment
 ## Logs
 - Create a folder called `/logs` in the ctx-ai folder.
 - When each phase is completed successfully, create a high level of the summary. 
-- Log summary should be no more than 16 lines. Summary should be concise and hight level overview.
+- Log summary should be no more than 16 lines. 
+- Summary should be concise and hight level overview.
 - Each summary should have 1 heading only and several bullet points.
 - Do not use icons in the log files.
 - Do not mention next phase or previous phase in the summary.
 - Save the summary file in this folder.
 - A log summary should be created for each phase.
 - The format of the log file should look like this phase_xx_yyyymmdd.md.
-- The summary should also be date stamped.
-- If a phase has been reimplemented or updated, summarized the changes and append the summary to the existing log file with datestamp. 
+- The summary should also be datestamped and timestamped.
+- If a phase has been reimplemented or updated, summarized the changes and
+append the summary to the existing log file with datestamp and timestamp.
 
-## Tasks 
-- Use the `tasks.md` file in the ctx-ai folder to track the status of all the tasks that need to be done
-- Add new tasks to the tasks.md file 
-- Do not work on tasks in the tasks.md that have already been completed.  Do not repeat these tasks.
-- **Mark completed tasks in `tasks.md`** immediately after finishing them.
-- Add new sub-tasks or TODOs discovered during development to `tasks.md` under a “Discovered During Work” section.
+## Scripts 
+- All shell cripts should be save to the ctx-ai git submodule in the folder call`scripts`.
+- Do not save scripts in the root directory in the parent repository.  
+
+## Documents 
+- All documents should be save to the ctx-ai git submodule in the folder call`docs`.
+- Documents such as installation guide and other instructions should be saved as
+  markdown file within this folder.
+- Do not save documents in the root directory in the parent repository.  
 
 ## General Principles:
 - **Never assume missing context. Ask questions if uncertain.**

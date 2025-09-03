@@ -27,7 +27,7 @@
 - Use the python package ibapi which is published interactive broker. 
 - Do not use third party package such as ib_async, ib_insync or ibridepy.
 
-## Phase 1 - Requirements  
+## Phase 1 - Documenting Requirements  
 - Create a file call requirements.md.
 - Store the requirement.md file in the folder `ctx-ai/ibxpy`.
 - In the requirements, explain what are the technical requirements that are
@@ -52,26 +52,128 @@ save with format phase_log_yyyymmdd.md
 this file as needed.
 
 ## Phase 4 - IBKR IBGateway Installation
-- Feature: Install Gateway
-  - Installation of IBGateway
-- Feature: IBGateway startup
-  - Implement IBGateway startup script
-  - Use credentials store in file to start ibgateway
+- Feature 1: Install IBGateway
 - Test: Check whether IBGateway has been installed
-- Test: Run IBGateway with proper credential
-- Test: Check if IBGateway is running
 
-## Phase 6 - Setup Folder Structure
-- This is a **standalone application**, NOT a distributable library
-- Use a flat module structure directly in src/ folder
-- Do NOT create nested package folders (no src/ibxpy_ai/)
-- Main entry point should be src/main.py
-
-## Phase 6 - Established connection to TWS (Trader Workstation)
-### Feature
-- Do not implement testing. Only write or modify code in this phase.
+## Phase 5 - Established connection to TWS (Trader Workstation)
+- Do not implement testing unless I have explicity direct you to do so. Only
+write or modify code for this phase.  Do not move on to the next phase.
+### Feature 1: Connection to TWS
 - Implement the connection to TWS on port 7500 on localhost.
-### Test
-- Build the test.  Do not build another test except for this phase.
-- Run the test in a virtual environment us uv.  Do not run any other test.  
+### Test 1: Connection to TWS
+- Build the test to check connection is successful. 
+- Run the test in a virtual environment us uv. 
 
+## Phase 5 - Established connection to TWS (Trader Workstation)
+- Do not implement testing unless I have explicity direct you to do so. Only
+write or modify code for this phase.  Do not move on to the next phase.
+### Feature 1: Connection to TWS
+- Implement the connection to TWS on port 7500 on localhost.
+### Test 1: Connection to TWS
+- Build the test to check connection is successful. 
+- Run the test in a virtual environment us uv. 
+
+## Phase 6 - Get Stock quote
+### Feature 1: Get the current stock quote
+- Implement the code that can retrieve the latest real-time stock quote
+### Feature 2: Integrate feature 1 into main app
+- Reimplement main.py to incorporate connection to the app and retrieve the
+latest stock quote
+### Test 1: Retrieve the current price for AAPL stock
+- Build the test for the module
+### Test 2: Integration test
+- Build the integration test 
+- Do not use mock data
+- Connect to the TWS as a client and retrieve the stock quore
+- Run the main.py for this test
+
+## Phase 7 - Place Stock Order
+### Feature 1: Refactor
+- Give users only 2 options "Begin Trading" and "Exit" at startup.
+### Feature 2: Prompt User and Place Order
+- Implement the code that ask user to buy the stock at latest current stock
+price.
+- Prompt the user within "Begin Trading" after the user have enter
+  name of the stock to track.
+- Display this prompt while in quote monitor: 
+  - ` **stock** >>> Open Trade at <current price> (press enter) ?`
+- If user press not press enter after 1 second, retrieve the latest current price and refresh the screen.
+  - Redisplay the prompt with new price.
+-  If user press enter, place the limit order for the stock at the current price.
+  - Check the current order status.  Relay that information back to the console.
+  - Continue to monitor order status until order has been completely filled.
+  - If order is partially filled, continue to monitor the progress and inform
+  the user through the console
+  - Display order status with one of the following format in the console:
+        - \*\*Stock\*\* \[TWS Open Order Status\] Filled at <price> 
+        - Do not continuously update the timestamp.  Display the datetime when
+        the order status has reached filled status.
+        - \*\*Stock\*\* \[TWS Open Order Status\] Partialed Filled 
+        - \*\*Stock\*\* \[TWS Open Order Status\] <status>
+  - Once the order is filled, continuously displayed this order status throughout
+    the life of the trading app.  
+- Do not prompt me to press enter so that that I can continue to monitor the position. 
+- Automatically transition into pnl monitor mode.
+
+### Feature 3: Integrate feature 1 into main app
+- Reimplement main.py to incorporate user prompt inside quote monitor and place
+  order if user press enter to open the stock position at 100 shares.
+### Test 2: Prompt and order placement
+- Build the test and place the order
+### Test 3: Integration testing
+- Integrate feature 2 into main.py
+
+## Phase 8 - Monitor Filled Order and Close Position
+### Feature 1: Track the PnL for the current asset (i.e. stock)
+- Display the PnL for asset as another line item on the console.
+- Display with this format
+    - If pnl is negative for the asset, display in red 
+      -  \*\*Stock\*\* \[TWS PnL] $<pnl value for asset> --- LOSS
+      - Do not display negative sign in the pnl value.  Display only the amount.
+    - If pnl is positive or zero display in green.
+      -  \*\*Stock\*\* \[TWS PnL] $<pnl value for asset> --- GAIN
+      - Do not display positive sign in the pnl value.  Display only the amount.
+### Feature 2: Prompt User to close the position
+- Prompt the user with this format:
+      -  `**Stock** >>> Close position at <current stock price> (press enter)?`
+- If user does not press enter after 1 second:
+  - Display the Pnl in the format specifiy in Feature 1.
+  - Display the prompt to close the position once again with the latest stock
+  price.
+- If user press enter, close the position by placing a sell order for the stock.
+- When closing the position, place the limit sell order for the stock at the current price.
+  - Check the current order status.  Relay that information back to the console.
+  - Continue to monitor order status until order has been completely filled.
+  - If order is partially filled, continue to monitor the progress and inform
+  the user through the console
+  - Display order status with one of the following format in the console:
+        - \*\*Stock\*\* \[TWS Close Order Status\] Filled at <price> 
+        - Do not continuously update the timestamp.  Display the datetime when
+        the order status has reached filled status.
+        - \*\*Stock\*\* \[TWS Close Order Status\] Partialed Filled 
+        - \*\*Stock\*\* \[TWS Close Order Status\] <status>
+  - Once the order is filled, continuously displayed this order status throughout
+    the life of the trading app.  
+### Test 1: PnL Tracking and Closing
+- Build the test for phase 8 - feature 1 and 2
+### Test 2: Integrate testing
+- Integrate feature into main.py
+
+## Phase 9 - Audit
+### Feature: Verify that the position is closed
+- Check that the current position for asset is 0.
+- Implement reqPosition for asset.
+### Feature: Check the final PnL for the asset if the position is 0
+- Check that the final pnl for the asset 
+### Feature: Display Audit
+- Diplay the result of the audit:
+        - \*\*Stock\*\* \[TWS Audit\] Final Position <number of shares>
+        - \*\*Stock\*\* \[TWS Audit\] Final PnL <loss or gain>
+### Test 1: test the audit
+- Build the test for audit
+
+## Phase 10 - Exit Trade for asset
+### Feature: Prompt User to Exit the trade 
+      -  `**Stock** >>> Exit the trade (press enter)?`
+### Test 1: test the exit for this asset
+- Build the test for exit 
