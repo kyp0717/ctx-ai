@@ -64,15 +64,6 @@ write or modify code for this phase.  Do not move on to the next phase.
 - Build the test to check connection is successful. 
 - Run the test in a virtual environment us uv. 
 
-## Phase 5 - Established connection to TWS (Trader Workstation)
-- Do not implement testing unless I have explicity direct you to do so. Only
-write or modify code for this phase.  Do not move on to the next phase.
-### Feature 1: Connection to TWS
-- Implement the connection to TWS on port 7500 on localhost.
-### Test 1: Connection to TWS
-- Build the test to check connection is successful. 
-- Run the test in a virtual environment us uv. 
-
 ## Phase 6 - Get Stock quote
 ### Feature 1: Get the current stock quote
 - Implement the code that can retrieve the latest real-time stock quote
@@ -160,15 +151,21 @@ price.
 - Integrate feature into main.py
 
 ## Phase 9 - Audit
-### Feature: Verify that the position is closed
+### Feature 1: Verify that the position is closed
 - Check that the current position for asset is 0.
 - Implement reqPosition for asset.
-### Feature: Check the final PnL for the asset if the position is 0
+### Feature 2: Check the final PnL for the asset if the position is 0
 - Check that the final pnl for the asset 
-### Feature: Display Audit
+### Feature 3: Determine the total cost for the trade
+- Calculate both the cost to buy and sell.  
+- Calculate the cost for the total trading lifecycle.
+### Feature 4: Display the total commission for the trading lifecycle
+### Feature 5: Display Audit
 - Diplay the result of the audit:
         - \*\*Stock\*\* \[TWS Audit\] Final Position <number of shares>
+        - \*\*Stock\*\* \[TWS Audit\] Commision Cost <amount>
         - \*\*Stock\*\* \[TWS Audit\] Final PnL <loss or gain>
+        - \*\*Stock\*\* \[TWS Audit\] Final PnL - Commission <loss or gain>
 ### Test 1: test the audit
 - Build the test for audit
 
@@ -177,3 +174,21 @@ price.
       -  `**Stock** >>> Exit the trade (press enter)?`
 ### Test 1: test the exit for this asset
 - Build the test for exit 
+
+## Phase 11 - Refactor
+### Feature 1: Modified the app to take 2 arguments
+- Remove the prompt "Enter symbol ...?".  Instead, inputs will come from
+arguments in the command line.
+- First argument is the symbol such as AAPL
+- Second argument is the position (size) of the trade such as 100 quantity
+- **REQUIRED**: Both arguments must be provided or the application will exit with an error
+- If no symbol and position is provided, trigger an error and do not run the application
+- Display clear usage instructions when arguments are missing
+### Feature 2: Modified first choice at the startup prompt
+- Change choice 1:
+  - `Begin trading <stock> with size <position>`
+### Test 1: 
+- Test the changes to the code made in feature 1 and 2.
+- Test that application exits with error when arguments are missing
+- Test that application runs correctly when both arguments are provided
+
