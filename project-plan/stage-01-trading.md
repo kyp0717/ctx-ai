@@ -56,8 +56,6 @@ this file as needed.
 - Test: Check whether IBGateway has been installed
 
 ## Phase 5 - Established connection to TWS (Trader Workstation)
-- Do not implement testing unless I have explicity direct you to do so. Only
-write or modify code for this phase.  Do not move on to the next phase.
 ### Feature 1: Connection to TWS
 - Implement the connection to TWS on port 7500 on localhost.
 ### Test 1: Connection to TWS
@@ -88,7 +86,7 @@ price.
   name of the stock to track.
 - Display this prompt while in quote monitor: 
   - ` **stock** >>> Open Trade at <current price> (press enter) ?`
-- If user press not press enter after 1 second, retrieve the latest current price and refresh the screen.
+- If user did not press enter after 1 second, retrieve the latest current price and refresh the screen.
   - Redisplay the prompt with new price.
 -  If user press enter, place the limit order for the stock at the current price.
   - Check the current order status.  Relay that information back to the console.
@@ -191,4 +189,9 @@ arguments in the command line.
 - Test the changes to the code made in feature 1 and 2.
 - Test that application exits with error when arguments are missing
 - Test that application runs correctly when both arguments are provided
+
+## Phase 12 - Retrieve 1-Minute Bar Data
+### Feature 1: Stream or request minute bar
+- Feature 2: Using minute bar history for the current day, calculate
+exponential moving average with 9 minute look back
 

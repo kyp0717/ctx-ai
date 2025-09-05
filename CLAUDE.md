@@ -4,20 +4,24 @@ It contains rules for python development and deployment
 
 ## Context File Structure
 - All context files are located directly in the `ctx-ai` folder at the project root
-- Key context files include:
+- Key context files and folders include:
   - `CLAUDE.md` - This file with project guidelines
-  - `project_plan.md` - Project architecture and constraints
+  - `project-plan/` - Project architecture and constraints
   - `tasks.md` - Task tracking and status
   - `requirements.md` - Project requirements
   - `logs/` - Phase completion summaries
+  - `tests/` - Unit tests and integration tests
+  - `scripts/` - Bash scripts used to support context and development (NOT
+  for direct implementaion as part of the application code base)
 
 ## Project Awareness & Context
-- At the start of a new conversation, read project_plan.md to review project's architecture, style, and constraints.
+- At the start of a new conversation, read files in `project-plan/` to review project's architecture, style, and constraints.
 - At the start of a new conversation, read task.md to review project's architecture, style, and constraints.
 - At the start of a new conversation, read `requirements.md`to review project's architecture, style, and constraints.
 - At the start of a new conversation, review sessions log files in folder `logs` to understand project status and issues.
 
 ## Testing 
+- **IMPORTANT: Always use the python-phase-tester agent (Task tool with subagent_type: "general-purpose") for implementing all phase tests.**
 - Create a python virtual environment for testing using uv.
 - Please perform all tests within this virtural environment.
 - Create a folder call `tests` in submodule ctx-ai.
